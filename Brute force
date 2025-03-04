@@ -1,0 +1,31 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Function to implement Brute Force String Matching Algorithm
+void bruteForceSearch(string text, string pattern) {
+    int textLen = text.length();
+    int patternLen = pattern.length();
+    bool found = false;
+
+    // Traverse the text and check for the pattern
+    for (int i = 0; i <= textLen - patternLen; i++) {
+        int j;
+
+        // Check if the substring matches the pattern
+        for (j = 0; j < patternLen; j++) {
+            if (text[i + j] != pattern[j])
+                break;
+        }
+
+        // If pattern is found
+        if (j == patternLen) {
+            cout << "Pattern found at index " << i << endl;
+            found = true;
+        }
+    }
+
+    if (!found) {
+        cout << "Pattern not found in the text." << endl;
+    }
+}
